@@ -79,12 +79,12 @@ color[]       userClr = new color[]{ color(255,0,0),
 public void setup() {
 
   context = new SimpleOpenNI(this);
-  if(context.isInit() == false)
+  /*if(context.isInit() == false)
   {
      println("Can't init SimpleOpenNI, maybe the camera is not connected!");
      exit();
      return;
-  }
+  }*/
 
   // enable depthMap generation
   context.enableDepth();
@@ -127,19 +127,19 @@ public void draw() {
   int off = 15;
   if( my_gui.cb_emitter1.Status().isActive() ){
     setVel (fluid,               off,               10, 2, 2, speed, speed);
-    setDens(fluid,               off,               10, 3, 3, 1, 0, 0);
+    setDens(fluid,               off,               10, 3, 3, 100/255f, 62/255f, 30/255f);
   }
   if( my_gui.cb_emitter2.Status().isActive() ){
     setVel (fluid, window_size_x-off,               10, 2, 2, -speed, speed);
-    setDens(fluid, window_size_x-off,               10, 3, 3, 1, 1, 1);
+    setDens(fluid, window_size_x-off,               10, 3, 3, 100/255f, 62/255f, 30/255f);
   }
   if( my_gui.cb_emitter3.Status().isActive() ){
     setVel (fluid, window_size_x-off, window_size_y-10, 2, 2, -speed, -speed);
-    setDens(fluid, window_size_x-off, window_size_y-10, 3, 3, 0, 0, 1);
+    setDens(fluid, window_size_x-off, window_size_y-10, 3, 3, 0, 38/255f, 51/255f);
   }
   if( my_gui.cb_emitter4.Status().isActive() ){
     setVel (fluid,               off, window_size_y-10, 2, 2, speed, -speed);
-    setDens(fluid,               off, window_size_y-10, 3, 3, 0, 1, 0);
+    setDens(fluid,               off, window_size_y-10, 3, 3, 0, 38/255f, 51/255f);
   }
 
 
