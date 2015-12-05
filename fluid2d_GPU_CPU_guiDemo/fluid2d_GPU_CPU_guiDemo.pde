@@ -77,14 +77,15 @@ color[]       userClr = new color[]{ color(255,0,0),
                                    };
 
 public void setup() {
+  noStroke();
 
   context = new SimpleOpenNI(this);
-  /*if(context.isInit() == false)
+  if(context.isInit() == false)
   {
      println("Can't init SimpleOpenNI, maybe the camera is not connected!");
      exit();
      return;
-  }*/
+  }
 
   // enable depthMap generation
   context.enableDepth();
@@ -102,6 +103,8 @@ public void setup() {
 
   initGUI();
   frameRate(60);
+
+  fluid.setTextureBackgroundColor(255, 255, 255);
 }
 
 
@@ -127,19 +130,20 @@ public void draw() {
   int off = 15;
   if( my_gui.cb_emitter1.Status().isActive() ){
     setVel (fluid,               off,               10, 2, 2, speed, speed);
-    setDens(fluid,               off,               10, 3, 3, 100/255f, 62/255f, 30/255f);
+    //setDens(fluid,               off,               10, 3, 3, 50/255f, 199/255f, 234/255f);
+    setDens(fluid,               off,               10, 3, 3, 23/255f, 153/255f, 204/255f);
   }
   if( my_gui.cb_emitter2.Status().isActive() ){
     setVel (fluid, window_size_x-off,               10, 2, 2, -speed, speed);
-    setDens(fluid, window_size_x-off,               10, 3, 3, 100/255f, 62/255f, 30/255f);
+    setDens(fluid, window_size_x-off,               10, 3, 3, 23/255f, 153/255f, 204/255f);
   }
   if( my_gui.cb_emitter3.Status().isActive() ){
     setVel (fluid, window_size_x-off, window_size_y-10, 2, 2, -speed, -speed);
-    setDens(fluid, window_size_x-off, window_size_y-10, 3, 3, 0, 38/255f, 51/255f);
+    setDens(fluid, window_size_x-off, window_size_y-10, 3, 3, 244/255f, 166/255f, 39/255f);
   }
   if( my_gui.cb_emitter4.Status().isActive() ){
     setVel (fluid,               off, window_size_y-10, 2, 2, speed, -speed);
-    setDens(fluid,               off, window_size_y-10, 3, 3, 0, 38/255f, 51/255f);
+    setDens(fluid,               off, window_size_y-10, 3, 3, 244/255f, 166/255f, 39/255f);
   }
 
 
@@ -170,7 +174,7 @@ public void draw() {
   image(fluid.getDensityMap(), 0, 0);
 //println(frameRate);
 
-context.update();
+  context.update();
 
   userList = context.getUsers();
   int userCount = userList.length;

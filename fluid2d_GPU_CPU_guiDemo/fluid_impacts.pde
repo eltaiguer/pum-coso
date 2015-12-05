@@ -5,11 +5,6 @@ public void keyPressed() {
   if( online && key == ESC) key = 0;
 }
 
-
-
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // createFluidSolver();
 //
@@ -61,11 +56,16 @@ public void fluidInfluence( Fluid2D fluid2d, PVector rightHand2d, PVector leftHa
       int leftHandXMap = int(map(leftHand2d.x, 0, 640, 0, 600));
       int leftHandYMap = int(map(leftHand2d.y, 0, 480, 0, 600));
 
-      int leftShoulderXMap = int(map(leftShoulder2d.x, 0, 640, 0, 600));
+      /*int leftShoulderXMap = int(map(leftShoulder2d.x, 0, 640, 0, 600));
       int leftShoulderYMap = int(map(leftShoulder2d.y, 0, 480, 0, 600));
 
-      if (leftHandYMap <= leftShoulderYMap && rightHandYMap <= leftShoulderYMap){
+      println("leftHandYMap: " + leftHandYMap);
+      println("leftShoulderYMap: " + leftShoulderYMap);
+      println("rightHandYMap: " + rightHandYMap);
+      println("leftShoulderYMap: " + leftShoulderYMap);*/
 
+      //if (leftHandYMap <= leftShoulderYMap && rightHandYMap <= leftShoulderYMap){
+      if (ypos<=90 && ypos >= 80){
         int size = (int)my_gui.sl_addObstacle_size.getValue();
         int xpos = (int)(rightHandXMap/(float)cell_size) + size/2;
         int ypos = (int)(rightHandYMap/(float)cell_size) + size/2;
@@ -73,7 +73,7 @@ public void fluidInfluence( Fluid2D fluid2d, PVector rightHand2d, PVector leftHa
         int xposLeft = (int)(leftHandXMap/(float)cell_size) + size/2;
         int yposLeft = (int)(leftHandYMap/(float)cell_size) + size/2;
 
-        addObject(fluid2d, xposLeft, yposLeft, abs(xposLeft - xpos), 2, 0);
+        addObject(fluid2d, xposLeft, yposLeft, abs(xposLeft - xpos), 1, 0);
       }
 
     }
@@ -132,11 +132,11 @@ public void addObject(Fluid2D fluid2d, int posx, int posy, int sizex, int sizey,
   int xlow = posx;
   int xhig = posx + sizex;
   int ylow = posy;
-  int yhig = posy + sizey;
+  int yhig = posy;
 
   for (int x = xlow-offset ; x < xhig+offset ; x++) {
-    for (int y = ylow-offset ; y < yhig+offset ; y++) {
-      if ( x < 0 || x >= fluid2d.getSizeXTotal() || y < 0 || y >= fluid2d.getSizeYTotal() )
+    for (int y = ylow-offset ; y <= yhig+offset ; y++) {
+      if ( x < 0 || x >= fluid2d.getSizeXTotal() || y < 0 )//|| y >= fluid2d.getSizeYTotal() )
         continue;
       if ( mode == 0) fluid2d.addObject(x, y);
       if ( mode == 1) fluid2d.removeObject(x, y);
