@@ -31,8 +31,8 @@ int  CPU_GPU        = 1; // 0 is GPU, 1 is CPU;
 //------------------------------------------------------------------------------
 
 
-int  fluid_size_x = 150;
-int  fluid_size_y = 150;
+int  fluid_size_x = 255;
+int  fluid_size_y = 200;
 
 int  cell_size    = 4;
 int  window_size_x = fluid_size_x  * cell_size + (cell_size * 2);
@@ -77,15 +77,16 @@ color[]       userClr = new color[]{ color(255,0,0),
                                    };
 
 public void setup() {
-  noStroke();
+  println(window_size_x);
+  println(window_size_y);
 
   context = new SimpleOpenNI(this);
-  if(context.isInit() == false)
+ /* if(context.isInit() == false)
   {
      println("Can't init SimpleOpenNI, maybe the camera is not connected!");
      exit();
      return;
-  }
+  }*/
 
   // enable depthMap generation
   context.enableDepth();
@@ -94,7 +95,7 @@ public void setup() {
   context.enableUser();
 
 
-  size(900, 600, JAVA2D); // for applet export
+  size(1024, 768, JAVA2D); // for applet export
 //  if ( CPU_GPU == 0 ) size(window_size_x + gui_size_x, window_size_y, GLConstants.GLGRAPHICS);
 //  if ( CPU_GPU == 1 ) size(window_size_x + gui_size_x, window_size_y, JAVA2D);
 
@@ -126,25 +127,23 @@ public void draw() {
 
 
   // emitters on corners
-  float speed = .25f;
-  int off = 15;
-  if( my_gui.cb_emitter1.Status().isActive() ){
-    setVel (fluid,               off,               10, 2, 2, speed, speed);
-    //setDens(fluid,               off,               10, 3, 3, 50/255f, 199/255f, 234/255f);
-    setDens(fluid,               off,               10, 3, 3, 23/255f, 153/255f, 204/255f);
-  }
-  if( my_gui.cb_emitter2.Status().isActive() ){
-    setVel (fluid, window_size_x-off,               10, 2, 2, -speed, speed);
-    setDens(fluid, window_size_x-off,               10, 3, 3, 23/255f, 153/255f, 204/255f);
-  }
-  if( my_gui.cb_emitter3.Status().isActive() ){
-    setVel (fluid, window_size_x-off, window_size_y-10, 2, 2, -speed, -speed);
-    setDens(fluid, window_size_x-off, window_size_y-10, 3, 3, 244/255f, 166/255f, 39/255f);
-  }
-  if( my_gui.cb_emitter4.Status().isActive() ){
-    setVel (fluid,               off, window_size_y-10, 2, 2, speed, -speed);
-    setDens(fluid,               off, window_size_y-10, 3, 3, 244/255f, 166/255f, 39/255f);
-  }
+  float speed = 1.00f;
+  int off = 10;
+  //  if( my_gui.cb_emitter1.Status().isActive() ){
+      setVel (fluid,               off,               10, 2, 2, speed, speed);   
+      setDens(fluid,               off,               10, 2, 2, 23/255f, 153/255f, 204/255f);
+  //  }
+  //  if( my_gui.cb_emitter2.Status().isActive() ){
+      setVel (fluid, window_size_x-off,               10, 2, 2, -speed, speed);
+      setDens(fluid, window_size_x-off,               10, 2, 2, 23/255f, 153/255f, 204/255f);
+  //  }
+  //  if( my_gui.cb_emitter3.Status().isActive() ){
+      setVel (fluid, window_size_x-off, window_size_y-10, 2, 2, -speed, -speed);
+      setDens(fluid, window_size_x-off, window_size_y-10, 2, 2, 244/255f, 166/255f, 39/255f);
+  //  }
+  //  if( my_gui.cb_emitter4.Status().isActive() ){
+      setVel (fluid,               off, window_size_y-10, 2, 2, speed, -speed);
+      setDens(fluid,               off, window_size_y-10, 2, 2, 244/255f, 166/255f, 39/255f);
 
 
 

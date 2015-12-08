@@ -1,9 +1,9 @@
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public void keyPressed() {
+/*public void keyPressed() {
   if( online && key == ESC) key = 0;
-}
+}*/
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // createFluidSolver();
@@ -40,7 +40,7 @@ Fluid2D createFluidSolver(int type) {
 public void fluidInfluence( Fluid2D fluid2d, PVector rightHand2d, PVector leftHand2d, PVector leftShoulder2d) {
 
   if (mouseButton == LEFT ){
-   /* if( my_gui.cb_mouse_emit.Status().isActive() ){
+  /*  if( my_gui.cb_mouse_emit.Status().isActive() ){
       int size =  (int)my_gui.sl_mouse_emit_size.getValue();
       float r  =  my_gui.sl_mouse_red.getValue() /255f;
       float g  =  my_gui.sl_mouse_green.getValue() /255f;
@@ -64,25 +64,28 @@ public void fluidInfluence( Fluid2D fluid2d, PVector rightHand2d, PVector leftHa
       println("rightHandYMap: " + rightHandYMap);
       println("leftShoulderYMap: " + leftShoulderYMap);
 
-      if (leftHandYMap <= leftShoulderYMap && rightHandYMap <= leftShoulderYMap){
+     // if (leftHandYMap <= leftShoulderYMap && rightHandYMap <= leftShoulderYMap){
       
-        int size = (int)my_gui.sl_addObstacle_size.getValue();
+        int size = 2;
         int xpos = (int)(rightHandXMap/(float)cell_size) + size/2;
         int ypos = (int)(rightHandYMap/(float)cell_size) + size/2;
 
         int xposLeft = (int)(leftHandXMap/(float)cell_size) + size/2;
         int yposLeft = (int)(leftHandYMap/(float)cell_size) + size/2;
+        
+      if (ypos<=105 && ypos >= 65){  
 
-        addObject(fluid2d, xposLeft, yposLeft, abs(xposLeft - xpos), 1, 0);
+        //addObject(fluid2d, xposLeft, yposLeft, abs(xposLeft - xpos), 1, 0);
+        addObject(fluid2d, xpos, 85, size, size, 0);
       }
 
-   // }
-    if( my_gui.cb_removeObstacles.Status().isActive() ){
+ //   }
+ /*   if( my_gui.cb_removeObstacles.Status().isActive() ){
       int size = (int)my_gui.sl_removeObstacle_size.getValue();
       int xpos = (int)(mouseX/(float)cell_size) - size/2;
       int ypos = (int)(mouseY/(float)cell_size) - size/2;
       addObject(fluid2d, xpos, ypos, size, size, 1);
-    }
+    }*/
   }
 
   if (mouseButton == RIGHT ) {
