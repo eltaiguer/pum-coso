@@ -15,8 +15,8 @@ class Light implements Scene {
 
   String getSceneName(){return "Light";}
 
-  void initialScene(){    
-    background(0);
+  void initialScene(){        
+    background(0);    
   }
 
   void drawScene(){    
@@ -44,7 +44,7 @@ class Light implements Scene {
     x = r * sin(phi) * cos(theta);
     y = r * sin(phi) * sin(theta);
     z = r * cos(phi);
-    line(position, 0, 0, position+ i*x, i*y, i*z);
+    line(400+position, 300+0, 0, position+ i*x, i*y, i*z);
   }//END
 
 }

@@ -10,6 +10,7 @@ class SceneManager{
       new Light(),
       new Horizon(),
       new SkyTransition(true),
+      new TreesInWind(),
       new Animals()
       // new Space(),
       // new SpaceSkyTransition(),

@@ -29,7 +29,7 @@ class Animals implements Scene {
   
 }
 
-void keyPressed(){
+/*void keyPressed(){
   
   if (keyCode == ' '){
     race++;    
@@ -53,4 +53,4 @@ void keyPressed(){
     
   }
   draw = true;
-}
+}*/

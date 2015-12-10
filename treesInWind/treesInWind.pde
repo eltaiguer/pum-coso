@@ -6,8 +6,8 @@ color veinColor = color(5,113,3,transparency/2);
 color branchColor = color(30);
 color skyColor = color(211,211,255);
 
-int width = 800;
-int height = 600;
+/*int width = 800;
+int height = 600;*/
 
 //branch controls
 int nTrees = 3; //the number of trees
