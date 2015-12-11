@@ -541,9 +541,9 @@ public class GUI_CLASS {
   public void guiCallBackground(){
      int xp, yp;
      papplet_.fill(0);  papplet_.noStroke();
-     papplet_.rect(gpx_, gpy_, gsx_, gsy_);
+     //papplet_.rect(gpx_, gpy_, gsx_, gsy_);
      papplet_.stroke(100); strokeWeight(3);
-     papplet_.line(gpx_, gpy_, gsy_, gsy_);
+  //   papplet_.line(gpx_, gpy_, gsy_, gsy_);
 
      strokeWeight(1);
 

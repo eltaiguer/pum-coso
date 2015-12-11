@@ -6,8 +6,8 @@ color veinColor = color(5,113,3,transparency/2);
 color branchColor = color(30);
 color skyColor = color(211,211,255);
 
-int width = 900;
-int height = 500;
+/*int width = 800;
+int height = 600;*/
 
 //branch controls
 int nTrees = 3; //the number of trees
@@ -43,7 +43,7 @@ boolean drawLeaves = true;
 //int height = 1050;
 
 void setup(){
-  size(width, height);
+  size(800, 600);
   frameRate(30);
   smooth();
   noStroke();
@@ -119,7 +119,7 @@ void initializeTreeValues(){
   drawLeaves = true;
   //branch
   nSegments = 15;
-  totalBranchLength = 400;
+  totalBranchLength = 600;
   maxBranchThickness = 10;
   maxBranchSizeForLeaves = 4;
   minBranchThickness = 2; 
