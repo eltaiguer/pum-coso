@@ -55,8 +55,14 @@ public class ControlFrame extends PApplet {
     cp5.addBang("bang6")
       .setPosition(180, 260)
       .setSize(40, 20)
-      .setLabel("Activar")
+      .setLabel("Activar Luna")
       ;
+      
+    cp5.addBang("bang11")
+      .setPosition(240, 260)
+      .setSize(40, 20)
+      .setLabel("Activar Sol")
+      ;  
 
   /////////////// Transicion Dia 5 /////////////////////////////////
 
