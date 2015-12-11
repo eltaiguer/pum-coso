@@ -11,6 +11,8 @@ class SceneManager{
       new Horizon(),
       new SkyTransition(true),
       new TreesInWind(),
+      new FadeTransition(),
+      new MoonStars(),
       new Animals()
       // new Space(),
       // new SpaceSkyTransition(),

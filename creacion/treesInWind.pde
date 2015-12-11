@@ -94,8 +94,8 @@ class TreesInWind implements Scene{
     blackLeaves = false;
     drawLeaves = true;
     //branch
-    nSegments = 15;
-    totalBranchLength = 600;
+    nSegments = 10;
+    totalBranchLength = 400;
     maxBranchThickness = 10;
     maxBranchSizeForLeaves = 4;
     minBranchThickness = 2; 
@@ -121,7 +121,7 @@ class TreesInWind implements Scene{
 }
 
 
-void mouseClicked(){
+/*void mouseClicked(){
     generateBranches();
     windDirection = random(TWO_PI);
     redrawTrees();
@@ -142,7 +142,7 @@ void mouseClicked(){
       }
      // redrawTrees();
     }  
-  }
+  }*/
 
 
 void generateBranches(){

@@ -57,7 +57,7 @@ void onNewUser(SimpleOpenNI curContext, int userId)
   void drawSkeleton(int userId)
   {
       
-    context.drawLimb(userId, SimpleOpenNI.SKEL_HEAD, SimpleOpenNI.SKEL_NECK);
+    /*context.drawLimb(userId, SimpleOpenNI.SKEL_HEAD, SimpleOpenNI.SKEL_NECK);
   
     context.drawLimb(userId, SimpleOpenNI.SKEL_NECK, SimpleOpenNI.SKEL_LEFT_SHOULDER);
     context.drawLimb(userId, SimpleOpenNI.SKEL_LEFT_SHOULDER, SimpleOpenNI.SKEL_LEFT_ELBOW);
@@ -76,5 +76,45 @@ void onNewUser(SimpleOpenNI curContext, int userId)
   
     context.drawLimb(userId, SimpleOpenNI.SKEL_TORSO, SimpleOpenNI.SKEL_RIGHT_HIP);
     context.drawLimb(userId, SimpleOpenNI.SKEL_RIGHT_HIP, SimpleOpenNI.SKEL_RIGHT_KNEE);
-    context.drawLimb(userId, SimpleOpenNI.SKEL_RIGHT_KNEE, SimpleOpenNI.SKEL_RIGHT_FOOT);
+    context.drawLimb(userId, SimpleOpenNI.SKEL_RIGHT_KNEE, SimpleOpenNI.SKEL_RIGHT_FOOT);*/
+  }
+  
+  void mouseClicked(){
+    Scene current = manager.actualScene;
+    String name = current.getSceneName();
+    if ( name == "TreesInWind"){    
+      generateBranches();
+      windDirection = random(TWO_PI);
+      redrawTrees();
+    }
+    println("name " + name);
+    if (name == "MoonStars"){
+      println("sabe");
+      ((MoonStars)current).addStar(mouseX,mouseY);
+    }
+  }
+  
+  void keyPressed(){
+    Scene current = manager.actualScene;
+    String name = current.getSceneName();
+    if (key == CODED) {
+      if (keyCode == LEFT) {
+        windDirection = 0;
+        windVelocity = -4;
+      } else if (keyCode == RIGHT) {
+        windDirection = TWO_PI;
+        windVelocity = 4;
+      }
+      else if (keyCode == UP) {
+        windDirection = 0;
+        windVelocity = 0;
+      }     
+     // redrawTrees();
+    }
+    else if (keyCode == ' '){
+        if (name == "Animals"){
+          println("sabe");
+          ((Animals)current).changeRace();
+        }
+      }  
   }

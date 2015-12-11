@@ -60,7 +60,7 @@ color[]       userClr = new color[]{ color(255,0,0),
 
 void setup ()
 {
-  size (1024, 768);
+  size (800, 600);
   smooth();
 
   bouncers = new ArrayList ();
