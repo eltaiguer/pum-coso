@@ -18,14 +18,17 @@ class Animals implements Scene {
   String getSceneName(){return "Animals";}
 
   void initialScene(){ 
+    noStroke();
+    //noSmooth();
     images = new PImage[cant];
     background = loadImage("pajaros-cielo.png");
   }
 
   void drawScene(){
     //if (draw){
-      image(background,0,0);
-      imageMode(CORNER);      
+      
+      imageMode(CORNER); 
+       image(background,0,0);     
       if (race==0){
         image = loadImage("leon-1.png");
         image2 = loadImage("leon-2.png");
@@ -62,6 +65,7 @@ class Animals implements Scene {
   }
 
   public void changeRace(){
+    
     race = (race+1) % 4;
     println("race " + race);
   }  

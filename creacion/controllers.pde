@@ -153,6 +153,10 @@ public class ControlFrame extends PApplet {
       manager.activate(9);
     }
     
+    if( n == "bang10") {
+      manager.activate(11);
+    } 
+    
     
   }
 

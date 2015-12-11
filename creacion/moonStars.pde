@@ -1,91 +1,101 @@
-class MoonStars implements Scene{
+class MoonStars implements Scene {
 
- PImage moon, night;
- ArrayList<Star> stars;
- int moonx, moony, moonyTop, count;
- float scaling;
- boolean shrink;
- PShape star;
+  PImage moon, night;
+  ArrayList<Star> stars;
+  int moonx, moony, moonyTop, count;
+  float scaling;
+  boolean shrink;
+  PShape star;
 
-  public MoonStars(){}
+  float a;
+  float x;
+  float y;
+  float dx, dy, r;
   
-  void closeScene(){}
-  
-  void initialScene(){
-   moon = loadImage("luna.png");
-   night = loadImage("noche.png");
-   star = loadShape("estrella.svg");
-   moonx = width/2;
-   moony = height;
-   moonyTop = height/3;
-  /* shrink = true;
-   scaling = 0.9;
-   count = 10;*/
-   stars = new ArrayList();
-   background(0);
-   star.scale(0.6);   
+  int felipe;
+
+
+  public MoonStars() {
   }
-  
-  void drawScene(){
+
+  void closeScene() {
+  }
+
+  void initialScene() {
+    moon = loadImage("luna.png");
+    //moon.resize(410, 0);
+    night = loadImage("noche.png");
+    star = loadShape("estrella.svg");
+    moonx = width/2;
+    moony = height;
+    moonyTop = height/3;
+    stars = new ArrayList();
+    background(0);
+    star.scale(0.6);
     
-    if (moony > moonyTop){    
+    noStroke();
+    smooth();
+    
+    felipe = 0;
+  }
+
+  void drawScene() {
+    if (moony > moonyTop) {    
+      
       imageMode(CORNERS);
-      image(night,0,0);
+      image(night, 0, 0);
       imageMode(CENTER);
       image(moon, moonx, moony);
-    //if (moony > moonyTop){
-      moony--;  
+      moony--;
     }
-    /*else{
+    else{
       
-      imageMode(CENTER);
-      for(int i = 0; i < stars.size(); i++){
-        Star star= stars.get(i);
-        star.animate();
-        //PShape starShape = stars[i].img;
-        star.img.scale(star.scaling);
-        shape(star.img, star.posx, star.posy);
-        
-      }*/
+      if (felipe > 20){
       
-      /*star = loadShape("estrella.svg");
-      imageMode(CENTER);
-      star.scale(scaling);
-      shape(star, 80, 90);    */  
+      /*fill(0, 40);
+      rect(0, 0, width, height);
       
+      fill(255);*/
+      r = random(20, 70);
+      ellipseMode(CENTER);
+      x = random(r, width-r);
+      y = random(r, height-r);
+      dx = map(noise(3.00+a), 0, 1, 0, 3);
+      dy = map(noise(4.00+a), 0, 1, 0, 3);
+      //ellipse(x + dx, y + dy, r, r);
+      shape(star, x+dx, y+dy,r,r);
       
-    //}
+      a = a + 0.01;
+      felipe = 0;
+      image(moon, moonx, moony);
+      }
+      felipe++;
+      
+    }
+    
+    
   }
 
-  String getSceneName(){return "MoonStars";};
-  
-  void addStar(int posx, int posy){
+
+  String getSceneName() {
+    return "MoonStars";
+  };
+
+  void addStar() {
     imageMode(CENTER);
-    shape(star, posx, posy); 
-    
-    
-   /* println("pum");
-    println(posx);
-    println(posy);
-    if (stars.size()<8){
-      stars.add(new Star(posx, posy));*/
-     //}
+
+    int xpos = moonx;
+
+    while (xpos > moonx-5 && xpos < moonx+moon.width+5) {
+      xpos=(int)random(0, width);
+    }
+
+    int ypos = moony;
+
+    while (ypos > moony-5 && ypos < moony+moon.height+5) {
+      ypos=(int)random(0, height);
+    }
+    shape(star, xpos, ypos);
   }
 }
 
-/*class Star {
-  int size;
-  boolean shrink = true;
-  
-  public Star() {
-    size = 10;
-  }
-  
-  public void animate(){
-    if (shrink){      
-      if (size>10){
-        
-      }
-    }
-  }
-}*/

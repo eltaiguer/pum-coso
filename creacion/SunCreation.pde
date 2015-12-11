@@ -38,7 +38,9 @@ class SunCreation implements Scene {
   
   public SunCreation(){}
   
-  void closeScene(){}
+  void closeScene(){
+    tint(255,255);
+  }
   
   void initialScene () {
     buildCloudBases();
@@ -46,6 +48,7 @@ class SunCreation implements Scene {
     smooth();
     background(skyColorSun);
     sun = loadImage("sol.png");
+    sun.resize(315,0);
     init = true;
   }
   

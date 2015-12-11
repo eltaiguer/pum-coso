@@ -17,7 +17,8 @@ class SceneManager{
       new SkyTransition(false),
       new Fishes(),
       new Birds(),
-      new Animals()
+      new Animals(),
+      new PumCoso()
       // new Space(),
       // new SpaceSkyTransition(),
       // new Sky(),

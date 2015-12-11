@@ -38,7 +38,7 @@ Fluid2D createFluidSolver(int type) {
 // fluidInfluence();
 //
 public void fluidInfluence( Fluid2D fluid2d, PVector rightHand2d, PVector leftHand2d) {
-
+  
     int rightHandXMap = int(map(rightHand2d.x, 0, kWidth, 0, width));
     int rightHandYMap = int(map(rightHand2d.y, 0, kHeight, 0, height));
 
@@ -53,12 +53,27 @@ public void fluidInfluence( Fluid2D fluid2d, PVector rightHand2d, PVector leftHa
     int xposLeft = (int)(leftHandXMap/(float)cell_size) + size/2;
     int yposLeft = (int)(leftHandYMap/(float)cell_size) + size/2;
     println("ypos: " + ypos);
-    if ((ypos<=60 && ypos >= 20) || (yposLeft<=60 && yposLeft >= 20)){
+    if ((ypos<=60 && ypos >= 20) || (yposLeft<=60 && yposLeft >= 20)) {
      
       addObject(fluid2d, xpos, 40, 5, 1, 0);
       addObject(fluid2d, xposLeft, 40, 5, 1, 0);
       
     }
+    
+    
+}
+
+public void mouseInfluence(Fluid2D fluid2d){
+  println(mouseX);
+    
+     int ypos = (int)(mouseY/(float)cell_size) - 1;
+      if (ypos<=60 && ypos >= 20){
+        
+        int xpos = (int)(mouseX/(float)cell_size) - 1;      
+        println("ypos: " + ypos);
+        println("xpos: " + xpos);
+        addObject(fluid2d, xpos, 40, 2, 2, 0);
+      }
 }
 
 

@@ -88,7 +88,7 @@ class Horizon implements Scene {
   
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   public void drawScene() {  
-  
+    //noCursor();
     background(0);
   
     // emitters on corners
@@ -150,6 +150,8 @@ class Horizon implements Scene {
     
         fluidInfluence(fluid, rightHand2d, leftHand2d);
       }
-    }  
+    }
+  
+    mouseInfluence(fluid);  
   } 
 }

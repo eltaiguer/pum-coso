@@ -90,7 +90,7 @@ void onNewUser(SimpleOpenNI curContext, int userId)
     println("name " + name);
     if (name == "MoonStars"){
       println("sabe");
-      ((MoonStars)current).addStar(mouseX,mouseY);
+      ((MoonStars)current).addStar();
     }
   }
   
@@ -119,8 +119,14 @@ void onNewUser(SimpleOpenNI curContext, int userId)
         
         if (name == "SunCreation"){
           ((SunCreation)current).sunTransition();
-        } 
-      }  
+        }
+       
+        if (name == "MoonStars"){
+          println("sabe");
+          ((MoonStars)current).addStar();
+        }
+    }         
+      
   }
   
   
