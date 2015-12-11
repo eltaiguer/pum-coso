@@ -116,15 +116,12 @@ void onNewUser(SimpleOpenNI curContext, int userId)
           println("sabe");
           ((Animals)current).changeRace();
         }
+        
+        if (name == "SunCreation"){
+          ((SunCreation)current).sunTransition();
+        } 
       }  
   }
   
-  void mousePressed() { 
-    Scene current = manager.actualScene;
-    String name = current.getSceneName();
-    if (name == "SunCreation"){
-      ((SunCreation)current).sunTransition();
-    }
   
-  }
 

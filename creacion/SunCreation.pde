@@ -32,6 +32,8 @@ PImage sun;
 int count = 1;
 int trans=0;
 
+boolean init = true;
+
 class SunCreation implements Scene {
   
   public SunCreation(){}
@@ -44,9 +46,14 @@ class SunCreation implements Scene {
     smooth();
     background(skyColorSun);
     sun = loadImage("sol.png");
+    init = true;
   }
   
   void drawScene () {
+    if (init){
+    background(skyColorSun);
+    init = false;
+    }
     if (count<=7000){
       for (int i = 0; i < numOfClouds; i++) {
         cloud(i);
@@ -57,6 +64,7 @@ class SunCreation implements Scene {
   
   public void sunTransition(){
     tint(255, trans);  // Apply transparency without changing color
+    imageMode(CORNER);
     image(sun, 50, 0);
     trans++; 
   }  
