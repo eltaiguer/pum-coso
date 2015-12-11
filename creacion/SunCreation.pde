@@ -16,7 +16,7 @@ int h = 450;
 int halfW = w/2; // use for max x coordinate
 int halfH = h/2; // use for max y coordinate
 // color info
-color skyColor = color(60, 135, 245);
+color skyColorSun = color(60, 135, 245);
 color cloudColor = color(220, 250, 255);
 // cloud info
 float cloudSize = .01; 
@@ -32,19 +32,21 @@ PImage sun;
 int count = 1;
 int trans=0;
 
-class SunCreation {
-
-  void setup () {
-//    size(900, 450);
+class SunCreation implements Scene {
+  
+  public SunCreation(){}
+  
+  void closeScene(){}
+  
+  void initialScene () {
     buildCloudBases();
     buildTranslateArray();
     smooth();
-    background(skyColor);
-//    frameRate(24);
+    background(skyColorSun);
     sun = loadImage("sol.png");
   }
   
-  void draw () {
+  void drawScene () {
     if (count<=7000){
       for (int i = 0; i < numOfClouds; i++) {
         cloud(i);
@@ -53,6 +55,14 @@ class SunCreation {
     }
   }
   
+  public void sunTransition(){
+    tint(255, trans);  // Apply transparency without changing color
+    image(sun, 50, 0);
+    trans++; 
+  }  
+  
+  String getSceneName(){return "SunCreation";};
+
 }
 
 
@@ -106,7 +116,7 @@ void buildTranslateArray () {
 void cloud (int cloudNum) {
   // clouds will appear or disappear based on random control
   if ((int) random(0, 2) == 0) {
-      fill(skyColor, cloudAlpha);
+      fill(skyColorSun, cloudAlpha);
   } else {
     fill(cloudColor, cloudAlpha);
   }
@@ -133,14 +143,12 @@ void cloud (int cloudNum) {
 }
 
 
-void mousePressed() { 
-  // restartbuildCloudBases();
-  tint(255, trans);  // Apply transparency without changing color
-  image(sun, 50, 0);
-  trans++;
-  //buildTranslateArray();
-  //background(skyColor);
-}
+
+//void mousePressed() { 
+//  tint(255, trans);  // Apply transparency without changing color
+//  image(sun, 50, 0);
+//  trans++;  
+//}
 
 
 

@@ -118,3 +118,13 @@ void onNewUser(SimpleOpenNI curContext, int userId)
         }
       }  
   }
+  
+  void mousePressed() { 
+    Scene current = manager.actualScene;
+    String name = current.getSceneName();
+    if (name == "SunCreation"){
+      ((SunCreation)current).sunTransition();
+    }
+  
+  }
+
