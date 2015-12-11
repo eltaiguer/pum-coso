@@ -35,7 +35,9 @@ class Animals implements Scene {
       
       if (race==1){
         image = loadImage("mono-1.png");
+        image.resize(408,0);
         image2 = loadImage("mono-2.png");
+        image2.resize(408,0);
         image(image, 0, height - image.height);
         image(image2, width - image2.width, height - image.height);        
       }

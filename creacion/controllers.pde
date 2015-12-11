@@ -134,11 +134,15 @@ public class ControlFrame extends PApplet {
     }
     // Escena 4 Agua
     if( n == "bang7") {
-      manager.activate(6);
+      manager.activate(7);
     }
     // Transicion 4 Agua-Cama
     if( n == "bang8") {
-      manager.activate(7);
+      manager.activate(8);
+    }
+    
+    if( n == "bang9") {
+      manager.activate(10);
     }
     
     if (n == "bang11"){
@@ -146,12 +150,10 @@ public class ControlFrame extends PApplet {
     }
     
     if( n == "bang12") {
-      manager.activate(8);
-    }
-    
-    if( n == "bang9") {
       manager.activate(9);
     }
+    
+    
   }
 
   public void draw() {
