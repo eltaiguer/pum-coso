@@ -5,7 +5,8 @@ float transparency = 150;
 color leafColor = color(5,113,3,transparency);
 color veinColor = color(5,113,3,transparency/2);
 color branchColor = color(30);
-color skyColor = color(211,211,255);
+//color skyColor = color(211,211,255);
+color skyColor = color(42,138,201);
 
 
 //branch controls

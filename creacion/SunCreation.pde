@@ -48,7 +48,7 @@ class SunCreation implements Scene {
     smooth();
     background(skyColorSun);
     sun = loadImage("sol.png");
-    sun.resize(315,0);
+    //sun.resize(315,0);
     init = true;
   }
   
