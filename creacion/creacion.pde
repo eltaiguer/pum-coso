@@ -116,5 +116,12 @@ void onNewUser(SimpleOpenNI curContext, int userId)
           println("sabe");
           ((Animals)current).changeRace();
         }
+        
+        if (name == "SunCreation"){
+          ((SunCreation)current).sunTransition();
+        } 
       }  
   }
+  
+  
+

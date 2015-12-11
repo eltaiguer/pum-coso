@@ -140,9 +140,8 @@ public class ControlFrame extends PApplet {
     if( n == "bang8") {
       manager.activate(7);
     }
-
-    // Escena Cama final
-    if( n == "bang11") {
+    
+    if (n == "bang11"){
       manager.activate(6);
     }
     
