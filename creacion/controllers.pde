@@ -77,8 +77,14 @@ public class ControlFrame extends PApplet {
     cp5.addBang("bang8")
       .setPosition(180, 360)
       .setSize(40, 20)
-      .setLabel("Activar")
+      .setLabel("Activar Peces")
       ;
+      
+   cp5.addBang("bang12")
+      .setPosition(240, 360)
+      .setSize(40, 20)
+      .setLabel("Activar aves")
+      ;   
   
   /////////////// Transicion Dia 6 /////////////////////////////////
 
@@ -136,8 +142,16 @@ public class ControlFrame extends PApplet {
     }
 
     // Escena Cama final
-    if( n == "bang7") {
+    if( n == "bang11") {
       manager.activate(6);
+    }
+    
+    if( n == "bang12") {
+      manager.activate(8);
+    }
+    
+    if( n == "bang9") {
+      manager.activate(9);
     }
   }
 

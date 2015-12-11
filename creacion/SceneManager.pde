@@ -13,6 +13,10 @@ class SceneManager{
       new TreesInWind(),
       new FadeTransition(),
       new MoonStars(),
+      new SunCreation()      
+      new SkyTransition(false),
+      new Fishes(),
+      new Birds(),
       new Animals()
       // new Space(),
       // new SpaceSkyTransition(),

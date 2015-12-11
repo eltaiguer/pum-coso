@@ -8,6 +8,9 @@
 
 class Animals implements Scene {
   
+  
+  PImage background;
+  
   public Animals(){}
 
   void closeScene(){}
@@ -16,11 +19,12 @@ class Animals implements Scene {
 
   void initialScene(){ 
     images = new PImage[cant];
+    background = loadImage("pajaros-cielo.png");
   }
 
   void drawScene(){
     //if (draw){
-      background(255);
+      image(background,0,0);
       imageMode(CORNER);      
       if (race==0){
         image = loadImage("leon-1.png");

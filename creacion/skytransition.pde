@@ -23,14 +23,14 @@ class SkyTransition implements Scene{
 
   void drawScene(){
     count++;
-    fill(42,138,201,c);
-    
     if (down){
+      fill(42,138,201,c);
       rect(0, 0,width,size);
       size=size+5;
       
     }
     else{
+      fill(45,76,96,c);
       rect(0, size,width,height);
       size = size-5;
     }
